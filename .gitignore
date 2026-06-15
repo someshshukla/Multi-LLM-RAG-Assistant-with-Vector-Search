@@ -1,0 +1,33 @@
+# Virtual Environment
+backend/venv/
+backend/env/
+.venv/
+
+# Environment Variables (NEVER PUSH API KEYS!)
+backend/.env
+frontend/.env
+frontend/.env.local
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Node Modules (Frontend)
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/build/
+
+# IDEs and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Database files
+*.sqlite3
+pg_data/
+
+# Local sample files (optional, but good practice)
+backend/sample_10k.pdf

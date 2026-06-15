@@ -1,5 +1,5 @@
 from langchain_postgres.vectorstores import PGVector
-from ingest import LocalHuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 
 import os
 
@@ -9,8 +9,7 @@ CONNECTION_STRING = os.environ.get(
 )
 COLLECTION_NAME = "financial_reports"
 
-# Initialize our local embeddings model
-embeddings = LocalHuggingFaceEmbeddings()
+embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 
 # Connect to the pgvector instance
 vectorstore = PGVector(

@@ -5,21 +5,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_postgres import PGVector
 from langchain_postgres.vectorstores import PGVector
 from langchain_core.documents import Document
-from sentence_transformers import SentenceTransformer
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from typing import List
-
-# We use an open-source, local embedding model to save costs
-# BGE-m3 or all-MiniLM-L6-v2 are great free choices.
-class LocalHuggingFaceEmbeddings:
-    def __init__(self, model_name="all-MiniLM-L6-v2"):
-        self.model = SentenceTransformer(model_name)
-        
-    def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        embeddings = self.model.encode(texts)
-        return embeddings.tolist()
-        
-    def embed_query(self, text: str) -> List[float]:
-        return self.model.encode(text).tolist()
 
 # Mock function simulating Gemini 1.5 Pro multimodal table extraction
 def extract_tables_with_gemini(page_content: str) -> str:
@@ -66,7 +53,7 @@ def process_documents(pdf_path: str):
     )
     COLLECTION_NAME = "financial_reports"
     
-    embeddings = LocalHuggingFaceEmbeddings()
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
     
     # Initialize PGVector
     vectorstore = PGVector.from_documents(

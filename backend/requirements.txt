@@ -5,7 +5,7 @@ langchain-groq==0.2.1
 langchain-community==0.3.13
 langchain-postgres==0.0.12
 psycopg[binary]
-sentence-transformers==3.3.1
+langchain-google-genai
 pypdf==5.1.0
 ragas==0.2.8
 python-multipart==0.0.20

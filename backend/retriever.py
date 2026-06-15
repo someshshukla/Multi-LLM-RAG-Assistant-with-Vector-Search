@@ -9,7 +9,7 @@ CONNECTION_STRING = os.environ.get(
 )
 COLLECTION_NAME = "financial_reports"
 
-embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
 # Connect to the pgvector instance
 vectorstore = PGVector(

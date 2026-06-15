@@ -53,7 +53,7 @@ def process_documents(pdf_path: str):
     )
     COLLECTION_NAME = "financial_reports"
     
-    embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
     
     # Initialize PGVector
     vectorstore = PGVector.from_documents(
